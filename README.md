@@ -27,3 +27,14 @@ $ids = User::searchByQuery([
 ->orderBy('first_name.raw', 'desc') <== asc is by default
 ->pluck('id');
 ````
+#### Set mappings 
+
+class Profile extends Model implements ElasticSearchInterface
+{
+    use ElasticSearch;
+    protected $table = 'User';
+
+    protected array $mappingProperties = [
+        'first_name' => ['type' => 'text', 'analyzer' => 'standard'],
+        'last_name'  => ['type' => 'text', 'analyzer' => 'standard'],
+    ];
