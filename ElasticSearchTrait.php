@@ -10,6 +10,11 @@ trait ElasticSearch
 {
     public array $params = [];
 
+    public static function bootElasticSearch(): void
+    {
+        static::observe(ElasticSearchObserver::class);
+    }
+    
     /**
      * @return static
      */
