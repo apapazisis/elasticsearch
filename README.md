@@ -39,3 +39,21 @@ class Profile extends Model implements ElasticSearchInterface
         'last_name'  => ['type' => 'text', 'analyzer' => 'standard'],
     ];
 ````
+
+### Manipulate Document
+
+````
+class Profile extends Model implements ElasticSearchInterface
+{
+    use ElasticSearch;
+    protected $table = 'User';
+
+    public function addDocument(): array
+    {
+        return [
+            'first_name' => $this->first_name,
+            'last_name'  => $this->last_name,
+            'full_name'  => $this->first_name . " " . $this->last_name
+        ];
+    }
+````
