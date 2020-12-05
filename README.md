@@ -28,7 +28,7 @@ $ids = User::searchByQuery([
 ->pluck('id');
 ````
 #### Set mappings 
-
+````
 class Profile extends Model implements ElasticSearchInterface
 {
     use ElasticSearch;
@@ -38,3 +38,4 @@ class Profile extends Model implements ElasticSearchInterface
         'first_name' => ['type' => 'text', 'analyzer' => 'standard'],
         'last_name'  => ['type' => 'text', 'analyzer' => 'standard'],
     ];
+````
