@@ -31,7 +31,7 @@ $ids = User::searchByQuery([
 ````
 class Profile extends Model implements ElasticSearchInterface
 {
-    use ElasticSearch;
+    use ElasticSearchTrait;
     protected $table = 'User';
 
     protected array $mappingProperties = [
@@ -45,7 +45,7 @@ class Profile extends Model implements ElasticSearchInterface
 ````
 class Profile extends Model implements ElasticSearchInterface
 {
-    use ElasticSearch;
+    use ElasticSearchTrait;
     protected $table = 'User';
 
     public function addDocument(): array
